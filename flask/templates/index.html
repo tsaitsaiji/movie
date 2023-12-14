@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ratings</title>
+
+    <!-- 引入 Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-2xl w-full bg-white p-8 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-6">All Movie Ratings</h1>
+
+        <!-- 顯示所有評分 -->
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">Title</th>
+                    <th class="py-2 px-4 border-b">Director</th>
+                    <th class="py-2 px-4 border-b">Actors</th>
+                    <th class="py-2 px-4 border-b">Release Date</th>
+                    <th class="py-2 px-4 border-b">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rating in ratings|reverse %} {# 在這裡使用 |reverse 反轉資料 #}
+                    <tr>
+                        <td class="py-2 px-4 border-b">{{ rating.title }}</td>
+                        <td class="py-2 px-4 border-b">{{ rating.director }}</td>
+                        <td class="py-2 px-4 border-b">{{ rating.actors }}</td>
+                        <td class="py-2 px-4 border-b">{{ rating.release_date }}</td>
+                        <td class="py-2 px-4 border-b">{{ rating.rating }}/10</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
